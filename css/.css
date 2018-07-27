@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color:#3b2f15;
+}
+#contenu {
+	background-color:#804444;
+}
+#gauche {
+	background-color:#804444;
+}
+#uncol {
+	background-color:#804444;
+}
+#uncol p, #contenu p {
+	color:#faf7fa;
+}
+#uncol h3, #contenu h3, .nmenu {
+	color:#ffee03;
+}
+img.part {
+	border:3px solid #ffee03;
+}
+#gauche h3 {
+	color:#ffee03;
+}
+img.imgDroit {
+	border:3px solid #ffee03;
+}
+#flashContent {
+	border:3px #ffee03 solid;
+}
+.evene {
+	background-color:#733f2e;
+	border: 1px solid #ffee03;
+}
+#gauche span.ladate {
+	color:#8de0d6;
+}
+#gauche span.titre {
+	color:#CC3300;
+}
+#uncol td span.nom {
+	color:#CC3300;
+}
+td.part {
+	background-color:#733f2e;
+	border: 1px solid #ffee03;
+}
+#uncol table tr td.part a:link, #uncol table tr td.part a:visited, #uncol table tr td.part a:active {
+	color:#ebbbab;
+}
+#uncol table tr td.part a:hover {
+	color:#bdbdf0;
+}
+#gauche p, #uncol table td.part {
+	color:#faf7fa
+}
+#uncol a:link, #uncol a:visited, #uncol a:active {
+	color:#ebbbab;
+}
+#uncol a:hover {
+	color:#bdbdf0;
+}
+#contenu a:link, #contenu a:visited, #contenu a:active {
+	color:#ebbbab;
+	text-decoration:none;
+}
+#contenu a:hover {
+	color:#bdbdf0;
+}
+#gauche a:link, #gauche a:visited, #gauche a:active {
+	color:#ebbbab;
+}
+#gauche a:hover {
+	color:#bdbdf0;
+}
+fieldset {
+	border-color:#ffee03;
+	color:#faf7fa;
+}
+.mygrad {
+	color:#f0ebf0;
+	background:#732313;
+	background: -webkit-gradient(linear, left top, left bottom, from(#de663e), to(#732313));
+	background: -moz-linear-gradient(top,  #de663e,  #732313);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#de663e', endColorstr='#732313');
+}
+.mygrad:hover {
+	color:#2ae0c5;
+	background:#bdbd17;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bdbd17), to(#d67f1c));
+	background: -moz-linear-gradient(top,  #bdbd17,  #d67f1c);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#bdbd17', endColorstr='#d67f1c');
+}
+.mygrad:active, .mygradsel {
+	color:#2ae0c5;
+	background:#bdbd17;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bdbd17), to(#d67f1c));
+	background: -moz-linear-gradient(top,  #bdbd17,  #d67f1c);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#bdbd17', endColorstr='#d67f1c');
+}
+#pied a:link, #pied a:visited, #pied a:active {
+	color:#660000;
+	text-decoration:none;
+}
+#pied a:hover, #pied a.selection {
+	text-decoration:none;
+	color:#CC3300;
+}

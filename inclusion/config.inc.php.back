@@ -1,0 +1,272 @@
+<?php
+		/**
+		 *	script config.inc.php
+		 *
+		 *	script de configuration du site
+		 *
+		 */
+		 
+		 //				A MODIFIER
+		 $live= false;
+		 $contact_email = 'ungoutalautre@gmail.com';
+		 $debug_email = 'info@iiidees.com';
+		 
+		 //				A MODIFIER
+		 //	constant de base
+		//define('BASE_URI','/homepages/25/d356093880/public_html/');										////// A MODIFIER //////////
+		 //define('BASE_URL_FR','http://www.dungoutalautre.fr/');
+		 //define('BASE_URL_GB', 'http://www.dungoutalautre.fr/');
+		 //define('BASE_ADMIN','http://www.dungoutalautre.fr/iagdugala/');
+		 //define('PDF_DIR','/homepages/25/d356093880/htdocs/public_html/menus/'); ////// A MODIFIER //////////
+		define('BASE_URI','localhost/dugala/');										////// A MODIFIER //////////
+		define('BASE_URL_FR','http://localhost/dugala/');
+		define('BASE_URL_GB', 'http://localhost/dugala/');
+		define('BASE_ADMIN','http://localhost/dugala/iagdugala/');
+		define('PDF_DIR','c:\xampp\xampp\htdocs\dugala\menus/'); ////// A MODIFIER //////////
+		 
+		 //debut de session
+		 session_start();
+		 date_default_timezone_set("Europe/Paris");
+		 
+		 //fonction de retour d'erreur
+		 function mon_retour_erreur($e_number, $e_message, $e_file, $e_line, $e_vars) {
+			 global $live, $debug_mail;
+			 
+			 //creation du message d'erreur
+			 $message = "Une erreur s'est produite dans le script '$e_file' &agrave; la ligne $e_line :\n$e_message\n";
+			 $message .= "<pre>" . print_r(debug_backtrace(),1) . "</pre>\n";
+			 
+			 //affichage ou envoi du message
+			 if (!$live) {
+				 echo '<div class="error">' . nl2br($message) . '</div>';
+			 } else {
+				 error_log($message,1,$debug_email,'From:administration@dungoutalautre.com');
+				 if ($e_number != E_NOTICE) {
+					 echo '<div class="error">Une erreur s\'est produite sur le syst&egrave;me. Nous nous excusons pour les inconv&eacute;nients que vous auriez pu subir...</div>';
+				 }
+			 }
+			 return true;
+		 }
+		 //		FIN DE		function mon_retour_erreur($e_number, $e_message, $e_file, $e_line, $e_vars)
+		 
+		 //fonction pour verifier que l'on a un utilisateur logger
+		 function redirect_invalid_user($check = 'memid', $destination='index.php', $protocol = 'http://') {
+			 if (!isset($_SESSION[$check])) {
+				 //						A MODIFIER
+				 $url = BASE_URL_FR . $destination;
+				 header("Location:$url");
+				 exit();
+			 }
+		 }
+		 //		FIN DE 		function redirect_invalid_user($check = 'user_id', $destination='index.php', $protocol = 'http://')
+		 
+		 //fonction pour faire un mot de passe du longueur donnée
+		 function make_password($length) {
+			 $vowels = 'aeiouyAEIUY0123456789';
+			 $consonants = 'bdghjlmnpqrstvwxzBDGHJLMNPQRSTVWXZ';
+			 $password = '';
+			 $alt = time() % 2;
+			 srand(time());
+			 for ($i = 0; $i < $length; $i++) {
+			 	 if ($alt == 1) {
+					 $password .= $consonants[(rand() % strlen($consonants))];
+					 $alt = 0;
+				 } else {
+					 $password .= $vowels[(rand() % strlen($vowels))];
+					 $alt = 1;
+				 }
+			 }
+			 return $password;
+		 }
+		 //		FIN DE		function make_password($length) {
+		 
+		 //fonction du jour de la semaine en francais en fonction d'une date
+		function get_jour($unedate)
+		{
+			$lejour = date('D', $unedate);
+			switch($lejour)
+			{
+				case "Sat" : $jour = "samedi" ; break;
+				case "Sun" : $jour = "dimanche" ; break;
+				case "Mon" : $jour = "lundi" ; break;
+				case "Tue" : $jour = "mardi" ; break;
+				case "Wed" : $jour = "mercredi" ; break;
+				case "Thu" : $jour = "jeudi" ; break;
+				case "Fri" : $jour = "vendredi" ; break;
+			}
+			return $jour;
+		}// FIN de function get_jour($unedate)
+		
+		//retrouve le mois en français en fonction d'une date
+		function get_mois($date)
+		{
+			//array des mois
+			$mois = array(1=> 'janvier', 'f&eacute;vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'ao&ucirc;t', 'septembre', 'octobre', 'novembre', 'd&eacute;cembre');
+			$lemois = $mois[date('n',$date)];
+			return $lemois;
+		}// FIN de function get_mois($date)
+		
+		//This function takes in the current width and height of an image
+		//and also the max width and height desired.
+		//It then returns an array with the desired dimensions.
+		function setWidthHeight($width, $height, $maxwidth, $maxheight){
+			if ($width > $height){
+				if ($width > $maxwidth){
+					//Then you have to resize it.
+					//Then you have to resize the height to correspond to the change in width.
+					$difinwidth = $width / $maxwidth;
+					$height = intval($height / $difinwidth);
+					//Then default the width to the maxwidth;
+					$width = $maxwidth;
+					//Now, you check if the height is still too big in case it was to begin with.
+					if ($height > $maxheight){
+						//Rescale it.
+						$difinheight = $height / $maxheight;
+						$width = intval($width / $difinheight);
+						//Then default the height to the maxheight;
+						$height = $maxheight;
+					}
+				} else {
+					if ($height > $maxheight){
+						//Rescale it.
+						$difinheight = $height / $maxheight;
+						$width = intval($width / $difinheight);
+						//Then default the height to the maxheight;
+						$height = $maxheight;
+					}
+				}
+			} else {
+				if ($height > $maxheight){
+					//Then you have to resize it.
+					//You have to resize the width to correspond to the change in width.
+					$difinheight = $height / $maxheight;
+					$width = intval($width / $difinheight);
+					//Then default the height to the maxheight;
+					$height = $maxheight;
+					//Now, you check if the width is still too big in case it was to begin with.
+					if ($width > $maxwidth){
+						//Rescale it.
+						$difinwidth = $width / $maxwidth;
+						$height = intval($height / $difinwidth);
+						//Then default the width to the maxwidth;
+						$width = $maxwidth;
+					}
+				} else {
+					if ($width > $maxwidth){
+						//Rescale it.
+						$difinwidth = $width / $maxwidth;
+						$height = intval($height / $difinwidth);
+						//Then default the width to the maxwidth;
+						$width = $maxwidth;
+					}
+				}
+			}
+			$widthheightarr = array ("$width","$height");
+			return $widthheightarr;
+		}	// FIN DE 		function setWidthHeight($width, $height, $maxwidth, $maxheight){
+		
+		//This function creates a thumbnail and then saves it.
+		function createthumb ($img, $constrainw, $constrainh){
+			//Find out the old measurements.
+			$oldsize = getimagesize ($img);
+			//Find an appropriate size.
+			$newsize = setWidthHeight ($oldsize[0], $oldsize[1], $constrainw, $constrainh);
+			//Create a duped thumbnail.
+			$exp = explode (".", $img,4);
+			//Check if you need a gif or jpeg.
+			if ($exp[3] == "gif"){
+				$src = imagecreatefromgif ($img);
+			} else {
+				$src = imagecreatefromjpeg ($img);
+			}
+			//Make a true type dupe.
+			$dst = imagecreatetruecolor ($newsize[0],$newsize[1]);
+			//Resample it.
+			imagecopyresampled ($dst,$src,0,0,0,0,$newsize[0],$newsize[1],$oldsize[0],$oldsize[1]);
+			//Create a thumbnail.
+			$thumbname = '..' . $exp[2] . "_th." . $exp[3];
+			if ($exp[3] == "gif"){
+				imagejpeg ($dst,$thumbname);
+			} else {
+				imagejpeg ($dst,$thumbname);
+			}
+			//And then clean up.
+			imagedestroy ($dst);
+			imagedestroy ($src);
+		}	//FIN DE		function createthumb ($img, $constrainw, $constrainh){
+		
+		
+		//Create function to return a date
+		function my_date_handler ($date, $type) {
+		
+			//setlocale (LC_ALL, 'fr_FR');
+			$jour = array('dimanche', 'lundi', 'mardi', 'mercredi','jeudi', 'vendredi', 'samedi');
+			$mois = array(1=> 'janvier', 'f&eacute;vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'ao&ucirc;t', 'septembre', 'octobre', 'novembre', 'd&eacute;cembre');
+			 
+			//preparation des variables
+			$leJour = $jour[date("w", strtotime($date))];	
+			$chiffre = date("j", strtotime($date));
+			$leMois = $mois[date("n", strtotime($date))];
+			$lAnnee = date("Y", strtotime($date));
+			
+			if ($type == 1) {//date avec "Le"
+				$ma_date = "Le $leJour $chiffre $leMois $lAnnee";
+			} elseif ($type == 2) {//date avec "le"
+				$ma_date = "le $leJour $chiffre $leMois $lAnnee";
+			} elseif ($type == 3) {// date sans "le"  et on ne met pas une majuscule au jour
+				$ma_date = "$leJour $chiffre $leMois $lAnnee";
+			} else { //date sans "le" et on met une majuscule au jour
+				$leJour = ucfirst($leJour);
+				$ma_date = "$leJour $chiffre $leMois $lAnnee";
+			}
+			
+			return $ma_date;
+		}	//fin de my_date_handler
+
+		//Create function to return a date
+		function my_date_handler_uk ($date, $type) {
+		
+			//setlocale (LC_ALL, 'fr_FR');
+			$jour = array('sunday', 'monday', 'tuesday', 'wednesday','thursday', 'friday', 'saturday');
+			$mois = array(1=> 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+			 
+			//preparation des variables
+			$leJour = $jour[date("w", strtotime($date))];	
+			$chiffre = date("j", strtotime($date));
+			$leMois = $mois[date("n", strtotime($date))];
+			$lAnnee = date("Y", strtotime($date));
+			switch ($chiffre) {
+				case 1:
+				case 21:
+				case 31:
+					$ext = 'st';
+					break;
+				case 2:
+				case 22:
+					$ext = 'nd';
+					break;
+				case 3:
+				case 23:
+					$ext = 'rd';
+					break;
+				default:
+					$ext = 'th';
+					break;
+			}
+			if ($type == 1) {//date avec "On"
+				$ma_date = "On $leJour $chiffre<sup>$ext</sup> $leMois $lAnnee";
+			} elseif ($type == 2) {//date avec "on"
+				$ma_date = "on $leJour $chiffre<sup>$ext</sup> $leMois $lAnnee";
+			} elseif ($type == 3) {// date sans "on"  et on ne met pas une majuscule au jour
+				$ma_date = "$leJour $chiffre<sup>$ext</sup> $leMois $lAnnee";
+			} else { //date sans "on" et on met une majuscule au jour
+				$leJour = ucfirst($leJour);
+				$ma_date = "$leJour $chiffre<sup>$ext</sup> $leMois $lAnnee";
+			}
+			
+			return $ma_date;
+		}	//fin de my_date_handler
+		 //designe le mode de report d'erreur
+		 set_error_handler('mon_retour_erreur');
+		 
+		 

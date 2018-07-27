@@ -1,0 +1,14 @@
+couleur de fond		#d4be8d
+fond boite		#a7a2a2
+police			#000
+titre et cadres		#600
+2è fond boite		#c2bcba
+Date evenment		#630
+titre 2e boite		#C30
+liens visible		#C30
+liens survolés		#00F
+lien pied de page	#600
+lien survolé pied de page	#C30
+lien Nav visible	#000
+lien Nav Survol		#ea890b
+<in

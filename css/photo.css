@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+#entere {
+	background-image:url(../images/css/chead.jpg);
+	background-repeat:no-repeat;
+}
+#wrapper {
+	background-image:url(../images/css/ccorps.jpg);
+	background-repeat:repeat-y;
+}

@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #d4be8d;
+}
+#contenu {
+	background-color:#a7a2a2;
+}
+#gauche {
+	background-color:#a7a2a2;
+}
+#uncol {
+	background-color:#a7a2a2;
+}
+#uncol p, #contenu p {
+	color:#000;
+}
+#uncol h3, #contenu h3, .nmenu {
+	color:#600;
+}
+img.part {
+	border:3px solid #600;
+}
+#gauche h3 {
+	color:#600;
+}
+img.imgDroit {
+	border:3px solid #600;
+}
+#flashContent {
+	border:3px #600 solid;
+}
+.evene {
+	background-color:#c2bcba;
+	border: 1px solid #600;
+}
+#gauche span.ladate {
+	color:#630;
+}
+#gauche span.titre {
+	color:#C30;
+}
+#uncol td span.nom {
+	color:#C30;
+}
+td.part {
+	background-color:#c2bcba;
+	border: 1px solid #600;
+}
+#uncol table tr td.part a:link, #uncol table tr td.part a:visited, #uncol table tr td.part a:active {
+	color:#C30;
+}
+#uncol table tr td.part a:hover {
+	color:#00F;
+}
+#gauche p, #uncol table td.part {
+	color:#000;
+}
+#uncol a:link, #uncol a:visited, #uncol a:active {
+	color:#C30;
+}
+#uncol a:hover {
+	color:#00F;
+}
+#contenu a:link, #contenu a:visited, #contenu a:active {
+	color:#C30;
+	text-decoration:none;
+}
+#contenu a:hover {
+	color:#00F;
+}
+#gauche a:link, #gauche a:visited, #gauche a:active {
+	color:#C30;
+}
+#gauche a:hover {
+	color:#00F;
+}
+fieldset {
+	border-color:#600;
+	color:#000;
+}
+.mygrad {
+	color: #000000;
+	background: #716C6B;
+	background: -webkit-gradient(linear, left top, left bottom, from(#C2BCBA), to(#716C6B));
+	background: -moz-linear-gradient(top,  #C2BCBA,  #716C6B);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#C2BCBA', endColorstr='#716C6B');
+}
+.mygrad:hover {
+	background: #791C08;
+	color: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3F0B04), to(#791C08));
+	background: -moz-linear-gradient(top,  #3F0B04,  #791C08);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3F0B04', endColorstr='#791C08');
+}
+.mygrad:active, .mygradsel {
+	color: #f47c20;
+	background: #791C08;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3F0B04), to(#791C08));
+	background: -moz-linear-gradient(top,  #3F0B04,  #791C08);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3F0B04', endColorstr='#791C08');
+}
+#pied a:link, #pied a:visited, #pied a:active {
+	color:#600;
+	text-decoration:none;
+}
+#pied a:hover, #pied a.selection {
+	text-decoration:none;
+	color:#C30;
+}

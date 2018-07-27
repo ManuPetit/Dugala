@@ -1,0 +1,212 @@
+@charset "utf-8";
+body {
+	margin:0;
+	padding:0;
+	font-size:1em;
+}
+#conteneur {
+	width:800px;
+	margin:0 auto;
+}
+#entere {
+	height:105px;
+}
+#wrapper {
+	float: left;
+	width: 100%;
+}
+#contenu {
+	margin: 0;
+	float: left;
+	height: 1%;
+	width:530px;
+	margin-left:10px;
+	margin-top:20px;
+}
+#gauche {
+	float: left;
+	width: 200px;
+	margin-top:20px;
+	margin-left:20px;
+	margin-right:20px;
+}
+#menujour {
+	float: left;
+	width: 200px;
+	margin-top:20px;
+	margin-left:20px;
+	margin-right:20px;
+}
+#menujour tr.haut {
+	height:99px;
+	background-image:url(../images/cadrehaut.png);
+	background-repeat:no-repeat;
+}
+#menujour tr.body {
+	background-image:url(../images/cadrebody.png);
+	background-repeat:repeat-y;
+	color:#FFF;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+}
+#menujour tr.bas {
+	background-image:url(../images/cadrebas.png);
+	background-repeat:no-repeat;
+	height:25px;
+}
+#menujour tr.body span.menu {
+	font-size:18px;
+}
+#menujour tr.body span.prix {
+	font-size:14px;
+}
+#menujour tr.body span.plats {
+	padding-left:15px;
+	padding-right:15px;
+}
+#pied {
+	clear: both;
+	text-align:center;
+	color:#000;
+	margin-left:20px;
+	margin-right:20px;
+}
+#navigation {
+	list-style: none;
+	margin: 0;
+	margin-left:4px;
+	padding: 0;
+	overflow: hidden;		/* Création du contexte de formatage */
+}
+#uncol {
+	width:760px;
+	margin-top:20px;
+	margin-left:20px;
+}
+#uncol p, #contenu p{
+	padding-left:10px;
+	padding-right:10px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.8em;
+}
+#uncol h3, #contenu h3 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:1em;
+	padding-left:20px;
+	padding-top:10px;
+}
+img.imgDroit {
+	margin:10px;
+	float:right;
+}
+img.part {
+	margin:10px;
+	float:right;
+}
+#gauche h3 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:1em;
+	padding-left:10px;
+	padding-top:10px;
+}
+#flashContent {
+	width:260px;
+	height:280px;
+	float:right;
+	margin-right:10px;
+}
+#gauche span.titre {
+	font-family:"Times New Roman", Times, serif;
+	font-size:1.6em;
+	padding-left:5px;
+}
+#gauche span.ladate {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.9em;
+}
+#uncol td span.nom {
+	font-family:"Times New Roman", Times, serif;
+	font-size:1.6em;
+	padding-left:5px;
+}
+#uncol table tr td.part a:link, #uncol table tr td.part a:visited, #uncol table tr td.part a:active  {
+	padding-left:5px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+}
+#gauche p,#uncol table td.part p {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:0;
+}
+#uncol a:link, #uncol a:visited, #uncol a:active {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.9em;
+	text-decoration:none;
+}
+#contenu a:link, #contenu a:visited, #contenu a:active {
+	text-decoration:none;
+}
+#gauche a:link, #gauche a:visited, #gauche a:active {
+	padding-left:25px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.7em;
+	text-decoration:none;
+}
+.evene {
+	margin-left:10px;
+	margin-right:10px;
+}
+#navigation li {
+	float: left;
+	width: 118px;
+	margin-left:7px;
+	margin-right: 7px;
+	color: #fff;
+}
+#navigation li a:link, #navigation li a:visited, #navigation li a:active {
+	display: block;
+	line-height: 23px;
+	font-weight:bold;
+	text-align: center;
+	text-decoration:none;
+}
+
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 1em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+form input.error, textarea.error, select.error {
+	border: 2px solid #800517;
+}
+.error {
+	color: #800517;
+	font-weight: thick;
+}
+#pied {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.7em;
+	color:#000;
+}
